@@ -305,41 +305,12 @@ public class CodingbatString1 {
     }
 
 
-    //START. Logic-1
-    public static boolean cigarParty(int cigars, boolean isWeekend) {
-        if (isWeekend == false & 40 <= cigars & 60 >= cigars) {
-            return true;
-        }
+    public static String startWord(String str, String word) {
 
-        if (isWeekend == true & cigars >= 40) {
-            return true;
-        } else return false;
-    }
-    //STOP. Logic-1
-
-    //Результат получения таблицы кодируется как значение int с 0 = нет, 1 = возможно, 2 = да.
-    // Если кто-то из вас очень стильный, 8 или более, то результат равен 2 (да).
-    // За исключением того, что если у любого из вас есть стиль 2 или меньше, тогда результат равен 0 (нет).
-    // В противном случае результат равен 1 (возможно).
-    public static int dateFashion(int you, int date) {
-        if (you <= 2 || date <= 2) {
-            return 0;
-        }
-        if (you >= 8 || date >= 8) {
-            return 2;
-        } else return 1;
+        return null;
 
     }
 
-    public static boolean squirrelPlay(int temp, boolean isSummer) {
-        if (isSummer) {
-            return (60 >= temp && 90 >= temp);
-        } else {
-            return (60 >= temp && 100 >= temp);
-        }
-
-
-    }
 
     //Recursion-1
     public static int factorial(int n) {
