@@ -90,7 +90,30 @@ public class Logic1 {
         }else return false;
     }
 
-    
+    //----------------------------------------
+    public boolean in1To10(int n, boolean outsideMode) {
+        if (n >= 1 || n <= 10 && outsideMode == false) {
+            return true;
+        }
+
+        if (n>10 && outsideMode == true){
+            return true;
+        }else return false;
+
+    }
+
+    //----------------------------------------
+    public boolean more20(int n) {
+        if(n % 1 == 1 || n % 1 == 2){
+            return true;
+        }else return false;
+
+    }
+
+
+
+
+
 
 
 
