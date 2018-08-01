@@ -110,8 +110,6 @@ public class Array1 {
         if(a > b){
             return new int[]{(nums[0]),  (nums[0]), (nums[0])};
         }else return new int[]{(nums[2]),  (nums[2]), (nums[2])};
-
-
     }
 
 
@@ -132,6 +130,93 @@ public class Array1 {
     }
 
 
+    //Given an int array length 3, if there is a 2 in the array immediately followed by a 3, set the 3 element to 0. Return the changed array.
+    public int[] fix23(int[] nums) {
+        int a = nums[0];
+        int b = nums[1];
+        int c = nums[2];
+
+        if(a == 2 && b == 3){
+            return new int[]{(nums[0]),  (0), (nums[2])};
+        }
+
+        if(b == 2 && c == 3){
+            return new int[]{(nums[0]),  (nums[1]), (0)};
+        }
+
+        else return new int[]{(nums[0]),  (nums[1]), (nums[2])};
+    }
+
+    //Start with 2 int arrays, a and b, of any length. Return how many of the arrays have 1 as their first element.
+    public int start1(int[] a, int[] b) {
+        if(a.length == 0 && b.length == 0){
+            return 0;
+        }
+
+        if(a.length == 0 && b[0] == 1 || a[0] == 1 && b.length == 0){
+            return 1;
+        }
+
+        if(a.length == 0 || b.length == 0){
+            return 0;
+        }
+
+        if(a[0] == 1 && b[0] == 1){
+            return 2;
+        }
+
+        if(a[0] == 1 && b[0] != 1 || a[0] != 1 && b[0] == 1){
+            return 1;
+        }
+        else return 0;
+    }
+
+    //second way
+    public int start12(int[] a, int[] b) {
+        if(a.length == 0){
+            if(b.length == 0){
+                return 0;
+            }
+            if(b[0] == 1){
+                return 1;
+            }else return 0;
+        }
+
+        if(a[0] == 1){
+            if(b.length == 0){
+                return 1;
+            }
+
+            if(b[0] == 1){
+                return 2;
+            }else return 1;
+        }
+
+        if(a[0] != 1){
+            if(b.length == 0){
+                return 0;
+            }
+
+            if(b[0] ==1){
+                return 1;
+            }else return 0;
+        }
+        else return 0;
+    }
+
+    //Start with 2 int arrays, a and b, each length 2. Consider the sum of the values in each array.
+    // Return the array which has the largest sum. In event of a tie, return a.
+    public int[] biggerTwo(int[] a, int[] b) {
+        if(a[0]+a[1] > b[0]+b[1] || a[0]+a[1] == b[0]+b[1]){
+            return a;
+        }else return b;
+    }
+
+    //Given an array of ints of even length, return a new array length 2 containing the middle two elements from the original array.
+    // The original array will be length 2 or more.
+    public int[] makeMiddle(int[] nums) {
+        return new int[]{nums[nums.length/2-1], nums[nums.length/2]};
+    }
 
 
 
