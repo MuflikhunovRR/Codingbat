@@ -1,5 +1,6 @@
 package ru.gotoqa;
 
+
 public class Array1 {
 
     //Array-1
@@ -101,15 +102,19 @@ public class Array1 {
         return !(nums[0] == 2 || nums[0] == 3 || nums[1] == 2 || nums[1] == 3);
     }
 
-    //------------------------------------
+
+
     //Given an int array, return a new array with double the length where its last element is the same as the original array,
     // and all the other elements are 0. The original array will be length 1 or more. Note: by default, a new int array contains all 0's.
     public int[] makeLast(int[] nums) {
-        int a = nums[nums.length-1];
-        int b = nums[2];
-        if(a > b){
-            return new int[]{(nums[0]),  (nums[0]), (nums[0])};
-        }else return new int[]{(nums[2]),  (nums[2]), (nums[2])};
+        int last = nums[nums.length-1];
+        int i = nums.length * 2;
+
+        int[] massive = new int[i];
+        massive[massive.length-1] = last;
+
+        return massive;
+
     }
 
 
@@ -219,13 +224,132 @@ public class Array1 {
     }
 
 
+    //Given 2 int arrays, each length 2, return a new array length 4 containing all their elements.
+    public static int[] plusTwo(int[] a, int[] b) {
+        return new int[]{a[0], a[1], b[0], b[1]};
+    }
+
+
+    //Given an array of ints, swap the first and last elements in the array. Return the modified array. The array length will be at least 1.
+    public int[] swapEnds(int[] nums) {
+        //find first element
+        int firstElem = nums[0];
+
+        //find last element
+        int lastElem = nums[nums.length - 1];
+
+        nums[0] = lastElem;
+        nums[nums.length - 1] = firstElem;
+        return nums;
+    }
+
+    //Given an array of ints of odd length, return a new array length 3 containing the elements from the middle of the array.
+    // The array length will be at least 3.
+    public static int[] midThree(int[] nums) {
+        return new int[]{nums[nums.length/2-1], nums[nums.length/2], nums[nums.length/2+1]};
+    }
+
+
+    //Given an array of ints of odd length, look at the first, last,
+    // and middle values in the array and return the largest. The array length will be a least 1.
+    public int maxTriple(int[] nums) {
+        //first
+        int firstElem = nums[0];
+
+        //last
+        int lastElem = nums[nums.length - 1];
+
+        //middle
+        int middle = nums[nums.length / 2];
+
+        if(firstElem > lastElem && firstElem > middle){
+            return firstElem;
+        }
+
+        if(middle > firstElem && middle > lastElem){
+            return middle;
+        }else return lastElem;
+    }
+
+
+    //Given an int array of any length, return a new array of its first 2 elements.
+    // If the array is smaller than length 2, use whatever elements are present.
+    public int[] frontPiece(int[] nums) {
+        if(nums.length == 0){
+            return new int[]{};
+        }
+        if(nums.length < 2){
+            return new int[]{nums[0]};
+        }
+        else return new int[]{nums[0], nums[1]};
+    }
+
+
+    //We'll say that a 1 immediately followed by a 3 in an array is an "unlucky" 1.
+    // Return true if the given array contains an unlucky 1 in the first 2 or last 2 positions in the array.
+    public boolean unlucky1(int[] nums) {
+
+        if(nums.length == 0 || nums.length == 1){
+            return false;
+        }
+
+        if(nums.length>2){
+            if(nums[0] == 1 && nums[1] == 3 || nums[1] == 1 && nums[2] == 3 || nums[nums.length-2] == 1 && nums[nums.length-1] == 3){
+                return true;
+            }
+        }
+
+         if(nums[0] == 1 && nums[1] ==3){
+            return true;
+        } else return false;
+    }
+
+
+
+    //Given 2 int arrays, a and b, return a new array length 2 containing, as much as will fit,
+    // the elements from a followed by the elements from b. The arrays may be any length, including 0,
+    // but there will be 2 or more elements available between the 2 arrays.
+    public int[] make2(int[] a, int[] b) {
+        if(a.length==0){
+            return new int[]{b[0], b[1]};
+        }
+        if(a.length==1){
+            return new int[]{a[0], b[0]};
+        }
+
+        else return new int[]{a[0], a[1]};
+    }
+
+
+    //Given 2 int arrays, a and b, of any length, return a new array with the first element of each array.
+    // If either array is length 0, ignore that array.
+    public int[] front11(int[] a, int[] b) {
+        if(a.length == 0 && b.length == 0){
+            return new int[]{};
+        }
+        if(a.length == 0){
+            return new int[]{b[0]};
+        }
+
+        if(b.length == 0){
+            return new int[]{a[0]};
+        }
+
+        return new int[]{a[0],b[0]};
+
+    }
+
+
+
+
 
 
     public static void main(String[] args) {
         int[] b = new int[5];
         int[] maxVal = new int[1];
-        System.out.println(true);
-
+        int[] arr1 = {};
+        int[] arr2 = {8, 6, 7, 5, 3, 0, 9};
+        System.out.println(arr1.length);
     }
 
 }

@@ -305,11 +305,22 @@ public class CodingbatString1 {
     }
 
 
-    public static String startWord(String str, String word) {
-
-        return null;
-
+    public String startWord(String str, String word) {
+        {
+            int lenStr = str.length();
+            int lenWord = word.length();
+            String temp;
+            if (lenStr >= lenWord) {
+                temp = str.substring(1, lenWord);
+                if (word.substring(1).equals(temp))
+                    return (str.charAt(0) + temp);
+                else
+                    return "";
+            } else
+                return "";
+        }
     }
+
 
 
     //Recursion-1
@@ -336,6 +347,7 @@ public class CodingbatString1 {
         result = fibonacci(n-1)+fibonacci(n-2);
         return result;
     }
+
 
 
 
